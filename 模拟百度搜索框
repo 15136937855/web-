@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度大项目上</title>
+    <style>
+        #box {
+            width: 450px;
+            margin: 200px auto;
+        }
+
+        #txt {
+            width: 300px;
+        }
+
+        #pop {
+            width: 350px;
+            border: 1px solid red;
+        }
+
+        #pop ul {
+            margin: 10px;
+            padding: 0;
+            width: 200px;
+            list-style-type: none;
+        }
+
+        #pop ul li {
+        }
+    </style>
+
+
+</head>
+<body>
+<div id="box">
+    <input type="text" id="txt" value=""/>
+    <input type="button" value="搜索" id="btn"/>
+</div>
+<script src="common.js"></script>
+<script>
+    var keyWords = ["小杨超美", "小杨超级帅", "小苏很不乖", "小冰不知道考啥样", "传奇", "传说你是一个大傻子", "哈哈哈", "苹果好吃", "苹果过降价"];
+    //获取文本框注册键盘抬起事件(就是键按下抬起时触发)
+    my$("txt").onkeyup = function () {
+        //每一次的键盘抬起都要判断页面中有没有这个div
+        if (my$("dv")) {
+            //删除一次
+            my$("box").removeChild(my$("dv"));
+        }
+        //获取文本框输入的内容
+        var text = this.value;
+        //临时数组---空数组------>存放对应的数据
+        var tempArr = [];
+        //把文本框输入的内容和数组中的每一个数据对比
+        for (var i = 0; i < keyWords.length; i++) {
+            //是否是最开始第一个字出现的
+            if (keyWords[i].indexOf(text) == 0) {
+                tempArr.push(keyWords[i]);//追加
+                // console.log(i);
+
+            }
+            console.log(keyWords[i]);
+        }
+        //如果文本框是空的,临时数组是空的,不用创建div
+        if (this.value.length == 0 || tempArr.length == 0) {
+            //如果页面中有这个div,删除这个div
+            if (my$("dv")) {
+                my$("box").removeChild(my$("dv"));
+            }
+            return;
+        }
+        //穿件div,把div加入id为box的div中
+        var dvObj = document.createElement("div");
+        my$("box").appendChild(dvObj);
+        dvObj.id = "dv";
+        dvObj.style.width = "350px";
+        // dvObj.style.height="100px";
+        dvObj.style.border = "1px solid green";
+        //循环遍历临时数组,创建对应的p标签
+        for (var i = 0; i < tempArr.length; i++) {
+            //创建p标签
+            var pObj = document.createElement("p");
+            //把p加入到div中
+            dvObj.appendChild(pObj);
+            setInnerText(pObj, tempArr[i]);
+            pObj.style.margin = "0";
+            pObj.style.padding = 0;
+            pObj.style.cursor = "pointer";
+            pObj.style.marginTop = "5px";
+            pObj.style.marginLeft = "5px";
+            //鼠标进入
+            pObj.onmouseover = function () {
+                this.style.backgroundColor = "pink";
+            };
+            //鼠标离开
+            pObj.onmouseout = function () {
+                this.style.backgroundColor = "";
+
+            };
+        }
+    };
+</script>
+
+
+</body>
+</html>
