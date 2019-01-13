@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Location对象</title>
+    <style></style>
+    <script>
+        //对象中的属性和方法
+        //Location对象
+        //console.log(window.location);
+
+        // console.log(window.location.hash);
+        // //hash 属性是一个可读可写的字符串，该字符串是 URL 的锚部分（从 # 号开始的部分）。
+        // console.log(window.location.host);
+        // //host是Internet网络域名,是国际通用顶级域名
+        // console.log(window.location.hostname);
+        // //主机名
+        // console.log(window.location.pathname);
+        // //路径
+        // console.log(window.location.port);
+        // // port:端口号　　整数，可选，省略时使用方案的默认端口，如http的默认端口为80。
+        // console.log(window.location.protocol);
+        // //2,window.location.protocol　　URL 的协议部分    返回值：http:
+        // console.log(window.location.search);
+        // //查询(参数)部分。除了给动态语言赋值以外，我们同样可以给静态页面,并使用javascript来获得相信应的参数值(?以及其后内容)
+        // // console.log(window.location.hash);
+        onload=function () {
+            document.getElementById("btn").onclick=function () {
+                //设置跳转页面的地址
+              // location.href="http://www.jd.com";//属性,可以后退--------必须记住
+              // location.assign("http://www.baidu.com");//方法,可以后退
+                //重新加载
+                // location.reload();
+                location.replace("http://www.baidu.com");//不可以后退
+            };
+        };
+    </script>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn"/>
+<script src="common.js"></script>
+</body>
+</html>
