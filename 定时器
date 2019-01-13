@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <script>
+        //这个案例感觉好像失败了
+        //成功啦,哈哈哈哈哈
+        //BOM中有两个定时器/计数器
+
+        //定时器
+        //参数1:函数
+        //参数2:时间以毫秒为单位---1000毫秒==1秒
+        //执行过程:页面加载完毕后,每过了1秒,执行一次函数的代码
+        //返回值就是定时器的id值
+    </script>
+</head>
+<body>
+<input type="button" value="停止" id="btn"/>
+<script src="common.js"></script>
+<script>
+    var ttt=setInterval(f1,1000);
+        function f1 () {
+        alert("哈哈哈");
+    }
+    document.getElementById("btn").onclick=function () {
+        //点击按钮,停止定时器
+        //参数:要清理的定时器的id的值
+        window.clearInterval(ttt);
+    };
+</script>
+</body>
+</html>
