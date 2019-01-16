@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一次性定时器(不能重复计时)</title>
+    <script>
+        //另一个定时器
+        /*
+        * 参数1:函数
+        * 参数2:时间----1000毫秒---1秒
+        * 返回值:该定时器的id
+        *
+        *
+        * */
+
+        //window.setTimeout(函数,时间);
+
+
+        //页面加载
+        window.onload=function () {
+            //只执行一次
+            var timeId=window.setTimeout(function () {
+                alert("你好");
+            },1000);
+            //点击这个按钮,停止这个一次性的定时器
+            document.getElementById("btn").onclick=function () {
+                clearTimeout(timeId);
+            };
+        };
+
+
+
+    </script>
+
+
+
+</head>
+<body>
+<input type="button" value="stop" id="btn"/>
+</body>
+</html>
