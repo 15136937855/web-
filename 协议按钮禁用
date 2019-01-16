@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>协议按钮禁用</title>
+
+
+
+</head>
+<body>
+<textarea name="texta" id="" cols="30" rows="10">
+    你是魔鬼吗"牙开始掉卡破地位 均可我了解到发哦你看大V
+    看离开家福克斯马利克,你要是不同意我死给你看,
+</textarea>
+<input type="button" value="请仔细阅读协议(5)" id="btn"disabled="disabled"/>
+<script src="common.js"></script>
+<script>
+    var time=5;
+    var timeId=setInterval(function () {
+        time--;
+        my$("btn").value="请仔细阅读协议("+time+")";
+        /*if (time>=0){
+            time--;
+        } else{
+            time=0;
+        }*/
+        if (time<=0){
+            //停止定时器
+           // clearTimeout(timeId);
+            clearInterval(timeId);
+            my$("btn").disabled=false;
+            my$("btn").value="同意";
+        }
+    },1000);
+</script>
+
+
+
+</body>
+</html>
