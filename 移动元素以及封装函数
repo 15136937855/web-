@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动元素以及封装动画</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin-top: 20px;
+            position: absolute;
+            left: 20px;
+        }
+        input {
+            margin-top: 120px;
+        }
+    </style>
+</head>
+<body>
+<div id="dv"></div>
+<input type="button" value="移动到400px" id="btn1" />
+<input type="button" value="移动到800px" id="btn2"/>
+<script src="common.js"></script>
+<script>
+    //前提:div要移动,就要脱离文档流--->position:absolute;
+    my$("btn1").onclick=function () {
+        //封装动画函数
+        animate(my$("dv"),400);
+
+
+
+
+
+    // var timId=setInterval(function () {
+    //     var left=my$("dv").offsetLeft;
+    //         var step=10;
+    //         left+=step;
+    //         if (left<=400){
+    //             my$("dv").style.left=left+"px";
+    //         }
+    //         else {
+    //             clearInterval(timId);
+    //         }
+    //     },20);
+    };
+    //封装过程
+    function animate(element,target){
+        //先清理定时器
+        clearInterval(timeId);
+        //一会儿要清理定时器(目的是只要一个定时器)
+        element.timId=setInterval(function () {
+            //获取div的当前位置
+            var left=element.offsetLeft;//数字类型,不带单位px
+                var step=9;
+                //div每次移动了多少像素(可以自己设定)
+                step=left<target?step:-step;
+                //每次向后移动的距离
+                left+=step;
+                //判断当前移动后的位置是否到达目标位置
+                if (Math.abs(target-left)>Math.abs(step)){
+                    //判断位置 利用绝对值
+                    element.style.left=left+"px";
+                }
+                else {
+                    //清理定时器
+                    clearInterval(timId);
+                    element.style.left=target+"px";
+                }
+            },2);
+    }
+
+    //点击第一个按钮移动到400px
+    //点击第二个按钮移动到800px
+    my$("btn2").onclick=function () {
+        //使用封装的函数
+        animate(my$("dv"),800) ;
+        // var left=my$("dv").offsetLeft;
+        //
+        // var timId=setInterval(function () {
+        //     left+=10;
+        //     if (left==800){
+        //         clearInterval(timId);
+        //     }
+        //     my$("dv").style.left=left+"px";
+        // },100);
+    };
+
+
+</script>
+
+
+
+</body>
+</html>
