@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
   <meta charset="UTF-8">
-  <title></title>
+  <title>完整版轮播图</title>
   <style type="text/css">
     * {
       padding: 0;
