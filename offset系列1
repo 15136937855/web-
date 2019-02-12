@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offset系列</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        input{
+            margin-top: 250px;
+        }
+        #dv1 {
+            width: 200px;
+            height: 150px;
+            background-color: red;
+            position: absolute;
+            left: 2px;
+            top: 40px;
+
+        }
+        #dv2 {
+            width: 100px;
+            height: 50px;
+            background-color: yellow;
+        }
+    </style>
+    <script>
+
+        //三个大的系列:
+        /*
+        * 三组属性
+        * 1. offset系列中的属性
+        *
+        *
+        * */
+    </script>
+
+
+</head>
+<body>
+<div id="dv1">
+    <div id="dv2"></div>
+</div>
+<input type="button" value="显示效果" id="btn"/>
+<script src="common.js"></script>
+<script>
+    // 红色div的狂和高
+    my$("btn").onclick=function () {
+        // 在style标签中设置的样式属性,获取不到
+        // 但是style属性中国设置的样式属性是可以获取到的
+        // 获取元素样式,下面的方法不用
+        // console.log(my$("dv1").style.width);
+        // console.log(my$("dv2").style.height);
+
+        // 以后获取元素的宽和高,应该使用offset系列
+        console.log(my$("dv1").offsetWidth);
+        console.log(my$("dv1").offsetHeight);
+
+        // 以后获取元素的相对位置的宽和高,应该使用offset系列
+        // offsetLeft
+        // offsetTop
+        console.log(my$("dv1").offsetLeft);
+        console.log(my$("dv1").offsetTop);
+
+    }
+
+</script>
+
+
+
+</body>
+</html>
