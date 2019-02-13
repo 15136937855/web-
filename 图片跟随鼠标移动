@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片跟着鼠标飞</title>
+    <style>
+        img {
+            position: absolute;
+        }
+    </style>
+
+
+</head>
+<body>
+<img src="images/Demo10-05.jpg" alt="" id="im">
+<script src="common.js"></script>
+<script>
+    // 鼠标 在页面中移动,图片跟着鼠标移动
+    document.onmousemove=function (e) {
+        // 可视区域的横纵坐标
+        my$("im").style.left=e.clientX+"px";
+        my$("im").style.height=e.clientY+"px";
+    };
+</script>
+</body>
+</html>
