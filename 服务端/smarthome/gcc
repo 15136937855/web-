@@ -1,0 +1,1 @@
+arm-linux-gcc dev.c srv.c test_adc.c test_led.c test_temp.c main.c newConvert.c tcp.c test_key.c test_pwm.c -pthread -o smarthome
